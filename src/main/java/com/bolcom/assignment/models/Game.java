@@ -25,7 +25,7 @@ public class Game {
   @ManyToOne
   private Player playerOne;
 
-  @NotNull
+
   @ManyToOne
   private Player playerTwo;
 
@@ -52,10 +52,9 @@ public class Game {
     totalTurn = 0;
   }
 
-  public Game(Player playerOne, Player playerTwo) {
+  public Game(Player playerOne) {
     this();
     this.playerOne = playerOne;
-    this.playerTwo = playerTwo;
   }
 
   public UUID getId() {

@@ -34,10 +34,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class GameServiceTest {
 
   @InjectMocks
-  private GameServiceImpl gameServiceImpl;
+  private GameService gameServiceImpl;
 
   @Mock
-  private PlayerService playerService;
+  private IPlayerService playerService;
 
   @Mock
   private GameRepository gameRepository;
@@ -54,7 +54,8 @@ public class GameServiceTest {
     Player playerOne = new Player("A", PLAYER_ONE_NUM);
     Player playerTwo = new Player("B", PLAYER_TWO_NUM);
 
-    Game game = new Game(playerOne, playerTwo);
+    Game game = new Game(playerOne);
+    game.setPlayerTwo(playerTwo);
     game.setId(UUID.randomUUID());
     return game;
   }
@@ -292,13 +293,13 @@ public class GameServiceTest {
         .thenReturn(new Player());
 
     // Act
-    gameServiceImpl.start(playerOneName, playerTwoName);
+    gameServiceImpl.start(playerOneName);
 
     // Assert
     verify(gameRepository).save(captor.capture());
     assertNotNull(captor.getValue().getBoard());
     assertNotNull(captor.getValue().getPlayerOne());
-    assertNotNull(captor.getValue().getPlayerTwo());
+    assertEquals(captor.getValue().getPlayerTwo(),null);
     assertEquals(GameStatus.IN_PROGRESS, captor.getValue().getStatus());
   }
 
@@ -338,7 +339,7 @@ public class GameServiceTest {
     UUID gameId = UUID.randomUUID();
 
     // Act
-    gameServiceImpl.load(gameId);
+    gameServiceImpl.load(gameId,"player 2");
   }
 
 }

@@ -1,44 +1,49 @@
 package com.bolcom.assignment.services;
 
 import com.bolcom.assignment.beans.PlayerBeans;
+import com.bolcom.assignment.constants.GameConstants;
 import com.bolcom.assignment.models.Game;
 import com.bolcom.assignment.models.Player;
+import com.bolcom.assignment.repositories.PlayerRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
- * PlayerService
+ * PlayerServiceImpl
  */
-public interface PlayerService {
+@Service
+public class PlayerService implements IPlayerService {
 
-  /**
-   * Get Player by Game and player's number.
-   * 
-   * @param game
-   * @param playerNumber
-   * @return
-   */
-  public Player getPlayerByGame(Game game, int playerNumber);
+  @Autowired
+  private PlayerRepository playerRepository;
 
-  /**
-   * Create and save a new player.
-   * 
-   * @param playerBeans
-   * @return
-   */
-  public Player createNewPlayer(String playerName, int playerNumber);
+  @Autowired
+  private ModelMapper modelMapper;
 
-  /**
-   * Convert Player Bean to Player object.
-   * 
-   * @param playerBeans
-   * @return
-   */
-  public Player convertPlayerBeansToPlayer(PlayerBeans playerBeans);
+  @Override
+  public Player getPlayerByGame(Game game, int playerNumber) {
+    if (playerNumber == GameConstants.PLAYER_ONE_NUM) {
+      return game.getPlayerOne();
+    } else {
+      return game.getPlayerTwo();
+    }
+  }
 
-  /**
-   * Saves or updates player.
-   * 
-   * @param player
-   * @return
-   */
-  public Player savePlayer(Player player);
+  @Override
+  public Player savePlayer(Player player) {
+    return playerRepository.save(player);
+  }
+
+  @Override
+  public Player createNewPlayer(String playerName, int playerNumber) {
+    Player player = new Player(playerName, playerNumber);
+    return savePlayer(player);
+  }
+
+  @Override
+  public Player convertPlayerBeansToPlayer(PlayerBeans playerBeans) {
+    return modelMapper.map(playerBeans, Player.class);
+  }
+
 }

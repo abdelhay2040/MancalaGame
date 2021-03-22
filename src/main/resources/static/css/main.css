@@ -1,11 +1,11 @@
 header {
   text-align: center;
-  color: rgb(68, 38, 11);
+  color: rgb(68, 38, 206);
 }
 
 .menu-item {
-  color: rgb(238, 196, 9);
-  background: rgb(68, 38, 11);
+  color: rgb(51, 153, 255);
+  background: rgb(230, 242, 255);
   cursor: pointer;
   display: block;
   margin: auto;
@@ -17,14 +17,14 @@ header {
 }
 
 .menu-item:hover {
-  color: rgb(68, 38, 11);
-  background: rgb(255, 187, 0);
+  color: rgb(153, 102, 255);
+  background: rgb(238, 230, 255);
 }
 
 .board {
   border: 5px solid black;
-  border-radius: 20%;
-  background: rgb(139, 72, 9);
+
+  background: rgb(0, 255, 255);
   min-width: 400px;
   margin: auto;
   text-align: center;
@@ -32,14 +32,14 @@ header {
 }
 
 .player-row {
-  color: rgb(238, 196, 9);
-  background: rgb(68, 38, 11);
+  color: rgb(227, 227, 215);
+  background: rgb(4, 67, 60);
 }
 
 .large-pit {
   min-width: 100px;
   color: black;
-  background: rgb(231, 157, 87);
+  background: rgb(0, 0, 204);
   border: 1px solid black;
   border-radius: 50%;
 }
@@ -47,15 +47,15 @@ header {
 .pit {
   width: 75px;
   height: 75px;
-  color: black;
+  color: #be6060;
   cursor: pointer;
-  background: rgb(231, 157, 87);
+  background: rgb(42, 162, 219);
   border: 1px solid black;
   border-radius: 50%;
 }
 
 .pit:hover {
-  background: rgb(255, 187, 0);
+  background: rgb(51, 153, 255);
 }
 
 #player1-row td {

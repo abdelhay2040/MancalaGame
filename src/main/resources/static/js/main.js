@@ -7,12 +7,8 @@ const newGame = async () => {
   if (!playerOneName) {
     return;
   }
-  const playerTwoName = prompt("Enter name for Player Two:", "Player Name");
-  if (!playerTwoName) {
-    return;
-  }
 
-  const url = `${BASE_URL}/start/${playerOneName}/${playerTwoName}`;
+  const url = `${BASE_URL}/start/${playerOneName}`;
   const response = await fetch(url, {
     headers: {
       "Content-Type": JSON_CONTENT_TYPE
@@ -32,9 +28,12 @@ const newGame = async () => {
 
 const loadGame = async () => {
   const gameId = prompt("Enter Game ID:", "Game ID");
-
+  const playerTwoName = prompt("Enter name for Player Two:", "Player Name");
+  if (!playerTwoName) {
+    return;
+  }
   if (gameId) {
-    const url = `${BASE_URL}/load/${gameId}`;
+    const url = `${BASE_URL}/load/${gameId}/${playerTwoName}`;
     const response = await fetch(url);
     const data = await response.json();
 

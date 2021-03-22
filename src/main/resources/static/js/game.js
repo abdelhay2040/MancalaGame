@@ -52,10 +52,10 @@ const populateGame = data => {
   gameStatusElement.innerText = data.status;
   totalTurnElement.innerText = data.totalTurn;
 
-  playerOneElement.innerText = data.playerOne.name;
-  playerTwoElement.innerText = data.playerTwo.name;
-  playerOneLargePit.innerText = data.playerOne.score;
-  playerTwoLargePit.innerText = data.playerTwo.score;
+  playerOneElement.innerText = data.playerOne!=null?data.playerOne.name:"";
+  playerTwoElement.innerText = data.playerTwo!= null ?data.playerTwo.name:"";
+  playerOneLargePit.innerText = data.playerOne!=null ?data.playerOne.score:"";
+  playerTwoLargePit.innerText = data.playerTwo!= null? data.playerTwo.score:"";
   currenTurnElement.innerText = getPlayerNameByNumber(data.playerTurn);
 
   activateTurnDisplayIndicator(data.playerTurn);

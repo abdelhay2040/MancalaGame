@@ -24,7 +24,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class PlayerServiceTest {
 
   @InjectMocks
-  private PlayerServiceImpl playerServiceImpl;
+  private PlayerService playerServiceImpl;
 
   @Mock
   private PlayerRepository playerRepository;
