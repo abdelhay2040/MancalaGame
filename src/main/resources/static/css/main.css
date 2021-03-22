@@ -1,0 +1,67 @@
+header {
+  text-align: center;
+  color: rgb(68, 38, 11);
+}
+
+.menu-item {
+  color: rgb(238, 196, 9);
+  background: rgb(68, 38, 11);
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15%;
+  height: 50px;
+  width: 200px;
+  font-size: 18px;
+}
+
+.menu-item:hover {
+  color: rgb(68, 38, 11);
+  background: rgb(255, 187, 0);
+}
+
+.board {
+  border: 5px solid black;
+  border-radius: 20%;
+  background: rgb(139, 72, 9);
+  min-width: 400px;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.player-row {
+  color: rgb(238, 196, 9);
+  background: rgb(68, 38, 11);
+}
+
+.large-pit {
+  min-width: 100px;
+  color: black;
+  background: rgb(231, 157, 87);
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.pit {
+  width: 75px;
+  height: 75px;
+  color: black;
+  cursor: pointer;
+  background: rgb(231, 157, 87);
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.pit:hover {
+  background: rgb(255, 187, 0);
+}
+
+#player1-row td {
+  border-top: 2px solid black;
+}
+
+#player2-row td {
+  border-bottom: 2px solid black;
+}
